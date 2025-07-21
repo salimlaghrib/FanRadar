@@ -19,25 +19,24 @@ L'application vise à :
 ## 🧱 Architecture du Projet
 
 
-lib
-    main.dart
-    core/
-        constants/
-        utils/
-        theme/
-        routes/
-    models/
-       
-    views/
-        screens/
-        widgets/
-    controllers/
-    services/
-    data/
-        datasources/
-            local/
-            remote/
-        epositories/
+    lib
+        main.dart
+        core/
+            constants/
+            utils/
+            theme/
+            routes/
+        models/
+        views/
+            screens/
+            widgets/
+        controllers/
+        services/
+        data/
+            datasources/
+                local/
+                remote/
+            repositories/
     
 
 📲 Fonctionnalités Clés
