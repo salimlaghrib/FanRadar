@@ -17,7 +17,9 @@ L'application vise à :
 ---
 
 ## 🧱 Architecture du Projet
+
 lib
+
     main.dart
     core/
         constants/
