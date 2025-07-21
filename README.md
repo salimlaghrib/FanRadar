@@ -40,40 +40,40 @@ L'application vise à :
     
 
 📲 Fonctionnalités Clés
-🎯 Fonctionnalités Générales
-Authentification : connexion/inscription
-
-Thème clair/sombre
-
-Notifications push (Firebase)
-
-Navigation fluide (bottom bar / drawer)
-
-🔥 Fan Radar
-Affichage des fandoms tendance (temps réel)
-
-Score Radar dynamique basé sur les votes
-
-Filtrage par catégorie (K-pop, anime, sport...)
-
-🎨 Fan Content
-Publication de fan arts, vidéos, textes
-
-Galerie d’exploration par fandom
-
-Système de vote + badge “Fan of the Week”
-
-🛍️ Fan Shop
-Liste des produits (Radar Drops)
-
-Commandes en ligne
-
-Suivi d’achats et alertes nouveautés
-
-💬 RadarBot (Phase 2)
-Chatbot IA pour poser des questions comme :
-
-“Quelles tendances dans l’anime aujourd’hui ?”
+    🎯 Fonctionnalités Générales
+    Authentification : connexion/inscription
+    
+    Thème clair/sombre
+    
+    Notifications push (Firebase)
+    
+    Navigation fluide (bottom bar / drawer)
+    
+    🔥 Fan Radar
+    Affichage des fandoms tendance (temps réel)
+    
+    Score Radar dynamique basé sur les votes
+    
+    Filtrage par catégorie (K-pop, anime, sport...)
+    
+    🎨 Fan Content
+    Publication de fan arts, vidéos, textes
+    
+    Galerie d’exploration par fandom
+    
+    Système de vote + badge “Fan of the Week”
+    
+    🛍️ Fan Shop
+    Liste des produits (Radar Drops)
+    
+    Commandes en ligne
+    
+    Suivi d’achats et alertes nouveautés
+    
+    💬 RadarBot (Phase 2)
+    Chatbot IA pour poser des questions comme :
+    
+    “Quelles tendances dans l’anime aujourd’hui ?”
 
 Résumé des tendances par NLP (traitement du langage)
 🧪 Technologies Utilisées
