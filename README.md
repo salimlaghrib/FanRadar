@@ -17,40 +17,26 @@ L'application vise à :
 ---
 
 ## 🧱 Architecture du Projet
-lib/
-│
-├── main.dart
-│
-├── core/
-│   ├── constants/
-│   ├── utils/
-│   ├── theme/
-│   └── routes/
-│
-├── models/
-│   └── user_model.dart
-│
-├── views/
-│   ├── screens/
-│   │   ├── login_screen.dart
-│   │   └── home_screen.dart
-│   └── widgets/
-│       ├── custom_button.dart
-│       └── user_card.dart
-│
-├── controllers/
-│   ├── login_controller.dart
-│   └── user_controller.dart
-│
-├── services/
-│   └── api_service.dart
-│
-└── data/
-    ├── datasources/
-    │   ├── local/
-    │   └── remote/
-    └── repositories/
-        └── user_repository.dart
+lib
+    main.dart
+    core/
+        constants/
+        utils/
+        theme/
+        routes/
+    models/
+       
+    views/
+        screens/
+        widgets/
+    controllers/
+    services/
+    data/
+        datasources/
+            local/
+            remote/
+        epositories/
+    
 
 📲 Fonctionnalités Clés
 🎯 Fonctionnalités Générales
