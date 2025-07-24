@@ -1,5 +1,5 @@
 import 'package:fanradar/core/routes/app_routes.dart';
-import 'package:fanradar/views/screens/splash_screen.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

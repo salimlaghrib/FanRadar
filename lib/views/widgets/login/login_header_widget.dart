@@ -10,8 +10,6 @@ class LoginHeaderWidget extends StatelessWidget {
         // Logo
         Image.asset("assets/images/FanRadar.png", width: 150),
 
-        const SizedBox(height: 2),
-
         Text(
           'Sign in to your account',
           style: TextStyle(fontSize: 16, color: Colors.grey[600]),

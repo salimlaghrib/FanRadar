@@ -1,3 +1,4 @@
+import 'package:fanradar/core/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
 class SocialLoginWidget extends StatelessWidget {
@@ -22,30 +23,27 @@ class SocialLoginWidget extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Text(
                 'other way to sign in',
-                style: TextStyle(
-                  color: Colors.grey[600],
-                  fontSize: 14,
-                ),
+                style: TextStyle(color: Colors.grey[600], fontSize: 14),
               ),
             ),
             Expanded(child: Divider(color: Colors.grey[300])),
           ],
         ),
         const SizedBox(height: 24),
-        
+
         // Social buttons
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             _SocialButton(
-              icon: 'G',
+              image: "assets/icon/google.png",
               color: Colors.red,
               onPressed: onGooglePressed,
             ),
-            const SizedBox(width: 16),
+            const SizedBox(width: 20),
             _SocialButton(
-              icon: 'f',
-              color: const Color(0xFF1877F2),
+              image: "assets/icon/facebook.png",
+              color: AppTheme.primaryColor,
               onPressed: onFacebookPressed,
             ),
           ],
@@ -56,35 +54,25 @@ class SocialLoginWidget extends StatelessWidget {
 }
 
 class _SocialButton extends StatelessWidget {
-  final String icon;
+  final String image;
   final Color color;
   final VoidCallback onPressed;
 
   const _SocialButton({
-    required this.icon,
+    required this.image,
     required this.color,
     required this.onPressed,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 50,
-      height: 50,
-      decoration: BoxDecoration(
-        border: Border.all(color: Colors.grey[300]!),
-        borderRadius: BorderRadius.circular(12),
-      ),
-      child: IconButton(
-        onPressed: onPressed,
-        icon: Text(
-          icon,
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-            color: color,
-          ),
-        ),
+    return SizedBox(
+      width: 40,
+      height: 40,
+
+      child: CircleAvatar(
+        backgroundColor: Colors.transparent,
+        backgroundImage: AssetImage(image),
       ),
     );
   }
