@@ -12,17 +12,18 @@ import '../widgets/login/login_header_widget.dart';
 import '../widgets/login/social_login_widget.dart';
 import '../widgets/login/terms_checkbox_widget.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+class RegisterScreen extends StatefulWidget {
+  const RegisterScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<RegisterScreen> createState() => _LoginScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _LoginScreenState extends State<RegisterScreen> {
   final _formKey = GlobalKey<FormState>();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
+  final _confirmpasswordController = TextEditingController();
   final _authService = AuthService();
 
   bool _isPasswordVisible = false;
@@ -83,11 +84,30 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       validator: _validatePassword,
                     ),
+                    const SizedBox(height: 16),
+
+                    // Password field
+                    CustomTextFieldWidget(
+                      label: 'confirm Password',
+                      hintText: 'Enter your confirm password',
+                      prefixIcon: Icons.lock_outlined,
+                      controller: _confirmpasswordController,
+                      obscureText: !_isPasswordVisible,
+                      suffixIcon: IconButton(
+                        icon: Icon(
+                          _isPasswordVisible
+                              ? Icons.visibility_off
+                              : Icons.visibility,
+                        ),
+                        onPressed: _togglePasswordVisibility,
+                      ),
+                      validator: _validatePassword,
+                    ),
                     const SizedBox(height: 8),
 
                     // Forgot password
                     ForgotPasswordWidget(onPressed: _handleForgotPassword),
-                    const SizedBox(height: 10),
+                    const SizedBox(height: 16),
 
                     // Terms checkbox
                     TermsCheckboxWidget(
@@ -113,9 +133,9 @@ class _LoginScreenState extends State<LoginScreen> {
 
                     // Create account
                     CreateAccountWidget(
-                      onPressed: _handleCreateAccount,
-                      title: "Don't have an account?",
-                      title2: "Create account",
+                      onPressed: _handleLogin,
+                      title: "Already have an account?",
+                      title2: "Back to Sign in",
                     ),
                   ],
                 ),
@@ -165,8 +185,8 @@ class _LoginScreenState extends State<LoginScreen> {
     Navigator.pushNamed(context, AppRoutes.forgotPassword);
   }
 
-  void _handleCreateAccount() {
-    Get.toNamed(AppRoutes.register);
+  void _handleLogin() {
+    Get.toNamed(AppRoutes.login);
   }
 
   void _handleSignIn() async {
