@@ -17,13 +17,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Mon App',
       initialRoute: AppRoutes.splash,
-      getPages: [
-        GetPage(name: AppRoutes.splash, page: () => const SplashScreen()),
-        // GetPage(name: AppRoutes.home, page: () => const HomeScreen()),
-        // Ajoute plus tard :
-        // GetPage(name: AppRoutes.login, page: () => const LoginScreen()),
-        // GetPage(name: AppRoutes.register, page: () => const RegisterScreen()),
-      ],
+      getPages: AppRoutes.routes,
     );
   }
 }
