@@ -2,9 +2,12 @@
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text('FanRadar', style: TextStyle(fontWeight: FontWeight.bold)),
         backgroundColor: Colors.white,
@@ -58,7 +61,6 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             // Categories Section
-           
 
             // Divider(height: 1),
             //News today   scetion liste verticale
@@ -70,21 +72,6 @@ class HomeScreen extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      Container(
-                        padding: EdgeInsets.all(8),
-                        decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            colors: [Colors.red[400]!, Colors.orange[400]!],
-                          ),
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        child: Icon(
-                          Icons.schedule,
-                          color: Colors.white,
-                          size: 20,
-                        ),
-                      ),
-                      SizedBox(width: 12),
                       Text(
                         'News Today',
                         style: TextStyle(
@@ -142,23 +129,29 @@ class HomeScreen extends StatelessWidget {
             SizedBox(height: 24),
             // PostsNewsSwitcher(),
             // Posts from followed users
-            ListView.builder(
-              shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
-              itemCount: 5,
-              itemBuilder: (context, index) {
-                return _buildPostCard(context, index);
-              },
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Text(
+                'Post',
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
             ),
-
-           
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: ListView.builder(
+                shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
+                itemCount: 5,
+                itemBuilder: (context, index) {
+                  return _buildPostCard(context, index);
+                },
+              ),
+            ),
           ],
         ),
       ),
     );
   }
-
- 
 
   Widget _buildPostCard(BuildContext context, int index) {
     final users = [
@@ -272,8 +265,6 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-
-
   Widget _buildNewsTodayCard(BuildContext context, int index) {
     final List<Map<String, dynamic>> newsToday = [
       {
@@ -384,7 +375,7 @@ class HomeScreen extends StatelessWidget {
               // 📷 Image
               Container(
                 width: 100,
-                height: 100,
+                height: double.infinity,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12),
                   boxShadow: [
@@ -397,7 +388,10 @@ class HomeScreen extends StatelessWidget {
                 ),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(12),
-                  child: Image.asset(news['image'] as String, fit: BoxFit.fill),
+                  child: Image.asset(
+                    news['image'] as String,
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
 
@@ -545,4 +539,3 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
-
