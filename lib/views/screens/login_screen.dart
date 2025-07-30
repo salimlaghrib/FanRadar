@@ -184,7 +184,7 @@ class _LoginScreenState extends State<LoginScreen> {
         if (mounted) {
           if (result['success']) {
             _showMessage(result['message'], Colors.green);
-            Navigator.pushReplacementNamed(context, AppRoutes.home);
+            Navigator.pushReplacementNamed(context, AppRoutes.main);
           } else {
             _showMessage(result['message'], Colors.red);
           }

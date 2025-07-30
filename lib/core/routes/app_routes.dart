@@ -1,3 +1,5 @@
+import 'package:fanradar/views/screens/home_screen.dart';
+import 'package:fanradar/views/screens/main_screen.dart';
 import 'package:fanradar/views/screens/register_screen.dart';
 import 'package:get/get.dart';
 
@@ -9,7 +11,7 @@ import '../../views/screens/splash_screen.dart';
 class AppRoutes {
   static const String splash = '/';
   static const String login = '/login';
-  static const String home = '/home';
+  static const String main = '/main';
   static const String register = '/register';
   static const String forgotPassword = '/forgot-password';
 
@@ -17,6 +19,7 @@ class AppRoutes {
     GetPage(name: splash, page: () => const SplashScreen()),
     GetPage(name: login, page: () => const LoginScreen()),
     GetPage(name: register, page: () => const RegisterScreen()),
+    GetPage(name: main, page: () => MainScreen()),
 
     // GetPage(
     //   name: home,
