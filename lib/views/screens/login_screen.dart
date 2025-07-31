@@ -2,6 +2,7 @@
 import 'package:fanradar/services/auth_service.dart';
 import 'package:fanradar/views/widgets/login/create_account_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../core/routes/app_routes.dart';
 import '../widgets/login/custom_button_widget.dart';
@@ -86,7 +87,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
                     // Forgot password
                     ForgotPasswordWidget(onPressed: _handleForgotPassword),
-                    const SizedBox(height: 16),
+                    const SizedBox(height: 10),
 
                     // Terms checkbox
                     TermsCheckboxWidget(
@@ -111,7 +112,11 @@ class _LoginScreenState extends State<LoginScreen> {
                     const SizedBox(height: 24),
 
                     // Create account
-                    CreateAccountWidget(onPressed: _handleCreateAccount),
+                    CreateAccountWidget(
+                      onPressed: _handleCreateAccount,
+                      title: "Don't have an account?",
+                      title2: "Create account",
+                    ),
                   ],
                 ),
               ),
@@ -161,7 +166,7 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   void _handleCreateAccount() {
-    Navigator.pushNamed(context, AppRoutes.register);
+    Get.toNamed(AppRoutes.register);
   }
 
   void _handleSignIn() async {
@@ -179,7 +184,7 @@ class _LoginScreenState extends State<LoginScreen> {
         if (mounted) {
           if (result['success']) {
             _showMessage(result['message'], Colors.green);
-            Navigator.pushReplacementNamed(context, AppRoutes.home);
+            Navigator.pushReplacementNamed(context, AppRoutes.main);
           } else {
             _showMessage(result['message'], Colors.red);
           }

@@ -2,23 +2,25 @@ import 'package:flutter/material.dart';
 
 class CreateAccountWidget extends StatelessWidget {
   final VoidCallback onPressed;
-
-  const CreateAccountWidget({Key? key, required this.onPressed})
-    : super(key: key);
+  final String title;
+  final String title2;
+  const CreateAccountWidget({
+    super.key,
+    required this.onPressed,
+    required this.title,
+    required this.title2,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text(
-          "Don't have an account? ",
-          style: TextStyle(color: Colors.grey[600], fontSize: 14),
-        ),
+        Text(title, style: TextStyle(color: Colors.grey[600], fontSize: 14)),
         TextButton(
           onPressed: onPressed,
-          child: const Text(
-            'Create Account',
+          child: Text(
+            title2,
             style: TextStyle(
               color: Color(0xFF4285F4),
               fontSize: 14,
