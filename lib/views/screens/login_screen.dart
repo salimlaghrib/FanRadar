@@ -1,4 +1,5 @@
 // lib/views/screens/login_screen.dart
+import 'package:fanradar/core/theme/app_theme.dart';
 import 'package:fanradar/services/auth_service.dart';
 import 'package:fanradar/views/widgets/login/create_account_widget.dart';
 import 'package:flutter/material.dart';
@@ -102,6 +103,8 @@ class _LoginScreenState extends State<LoginScreen> {
                       text: 'Sign In',
                       onPressed: _agreeToTerms ? _handleSignIn : null,
                       isLoading: _isLoading,
+                      backgroundColor: Theme.of(context).colorScheme.onPrimary,
+                      textColor: Theme.of(context).colorScheme.primary,
                     ),
                     const SizedBox(height: 24),
 

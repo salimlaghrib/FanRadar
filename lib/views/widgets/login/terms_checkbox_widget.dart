@@ -12,14 +12,26 @@ class TermsCheckboxWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final textTheme = Theme.of(context).textTheme;
+
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Checkbox(
           value: value,
           onChanged: (newValue) => onChanged(newValue ?? false),
-          activeColor: const Color(0xFF4285F4),
+          fillColor: MaterialStateProperty.resolveWith<Color>((states) {
+            if (states.contains(MaterialState.selected)) {
+              return colorScheme.primary;
+            }
+            return colorScheme.surfaceVariant;
+          }),
+          side: BorderSide(color: colorScheme.outlineVariant, width: 1.5),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
+          visualDensity: VisualDensity.compact,
         ),
+        const SizedBox(width: 8),
         Expanded(
           child: GestureDetector(
             onTap: () => onChanged(!value),
@@ -27,25 +39,26 @@ class TermsCheckboxWidget extends StatelessWidget {
               padding: const EdgeInsets.only(top: 12),
               child: RichText(
                 text: TextSpan(
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: Colors.grey[600],
+                  style: textTheme.bodyMedium?.copyWith(
+                    color: colorScheme.onSurfaceVariant,
                   ),
                   children: [
                     const TextSpan(text: "I've read and agreed to "),
-                    const TextSpan(
+                    TextSpan(
                       text: "User Agreement",
                       style: TextStyle(
-                        color: Color(0xFF4285F4),
+                        color: colorScheme.primary,
                         decoration: TextDecoration.underline,
+                        fontWeight: FontWeight.w500,
                       ),
                     ),
                     const TextSpan(text: " and "),
-                    const TextSpan(
+                    TextSpan(
                       text: "Privacy Policy",
                       style: TextStyle(
-                        color: Color(0xFF4285F4),
+                        color: colorScheme.primary,
                         decoration: TextDecoration.underline,
+                        fontWeight: FontWeight.w500,
                       ),
                     ),
                   ],

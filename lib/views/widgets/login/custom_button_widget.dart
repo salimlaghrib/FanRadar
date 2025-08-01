@@ -18,34 +18,58 @@ class CustomButtonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final textTheme = Theme.of(context).textTheme;
+
     return SizedBox(
       width: double.infinity,
-      height: 50,
+      height: 48, // Material 3 standard button height
       child: ElevatedButton(
         onPressed: isLoading ? null : onPressed,
-        style: ElevatedButton.styleFrom(
-          backgroundColor: backgroundColor ?? const Color(0xFF4285F4),
-          foregroundColor: textColor ?? Colors.white,
-          elevation: 0,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12),
-          ),
-          disabledBackgroundColor: Colors.grey[300],
-        ),
+        style:
+            ElevatedButton.styleFrom(
+              backgroundColor: backgroundColor,
+              foregroundColor: textColor,
+              elevation: 0,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(
+                  8,
+                ), // M3 standard border radius
+              ),
+              disabledBackgroundColor: colorScheme.onSurface.withOpacity(0.12),
+              disabledForegroundColor: colorScheme.onSurface.withOpacity(0.38),
+              padding: const EdgeInsets.symmetric(horizontal: 24),
+              textStyle: textTheme.labelLarge?.copyWith(
+                fontWeight: FontWeight.w600,
+              ),
+              // Add splash and highlight colors
+              surfaceTintColor: Colors.transparent,
+              shadowColor: Colors.transparent,
+            ).copyWith(
+              // Overlay color for pressed state
+              overlayColor: MaterialStateProperty.resolveWith<Color?>((states) {
+                if (states.contains(MaterialState.pressed)) {
+                  return colorScheme.onPrimary.withOpacity(0.12);
+                }
+                return null;
+              }),
+            ),
         child: isLoading
-            ? const SizedBox(
-                height: 20,
-                width: 20,
+            ? SizedBox(
+                height: 24,
+                width: 24,
                 child: CircularProgressIndicator(
-                  strokeWidth: 2,
-                  valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                  strokeWidth: 2.5,
+                  valueColor: AlwaysStoppedAnimation<Color>(
+                    textColor ?? colorScheme.onPrimary,
+                  ),
                 ),
               )
             : Text(
                 text,
-                style: const TextStyle(
-                  fontSize: 16,
+                style: textTheme.labelLarge?.copyWith(
                   fontWeight: FontWeight.w600,
+                  color: textColor ?? colorScheme.onPrimary,
                 ),
               ),
       ),

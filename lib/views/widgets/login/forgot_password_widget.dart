@@ -3,10 +3,8 @@ import 'package:flutter/material.dart';
 class ForgotPasswordWidget extends StatelessWidget {
   final VoidCallback onPressed;
 
-  const ForgotPasswordWidget({
-    Key? key,
-    required this.onPressed,
-  }) : super(key: key);
+  const ForgotPasswordWidget({Key? key, required this.onPressed})
+    : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +15,9 @@ class ForgotPasswordWidget extends StatelessWidget {
         child: Text(
           'Forgot password?',
           style: TextStyle(
-            color: Colors.grey[600],
+            color: Theme.of(context).colorScheme.onSurface.withAlpha(
+              200, // Adjust opacity for better visibility
+            ),
             fontSize: 14,
           ),
         ),
