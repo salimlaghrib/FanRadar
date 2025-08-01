@@ -43,7 +43,7 @@ class SocialLoginWidget extends StatelessWidget {
             const SizedBox(width: 20),
             _SocialButton(
               image: "assets/icon/facebook.png",
-              color: AppTheme.primaryColor,
+              color: Colors.blue,
               onPressed: onFacebookPressed,
             ),
           ],

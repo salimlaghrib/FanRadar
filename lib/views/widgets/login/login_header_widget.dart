@@ -5,14 +5,23 @@ class LoginHeaderWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final textTheme = Theme.of(context).textTheme;
+
     return Column(
       children: [
         // Logo
         Image.asset("assets/images/FanRadar.png", width: 150),
 
+        const SizedBox(height: 16), // Added spacing
+
         Text(
           'Sign in to your account',
-          style: TextStyle(fontSize: 16, color: Colors.grey[600]),
+          style: textTheme.bodyMedium?.copyWith(
+            color: colorScheme.onSurface.withAlpha(
+              200, // Adjust opacity for better visibility
+            ), // Using onSurface with opacity
+          ),
         ),
       ],
     );
