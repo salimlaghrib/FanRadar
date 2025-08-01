@@ -67,9 +67,9 @@ class AppTheme {
   static const ColorScheme darkColorScheme = ColorScheme(
     brightness: Brightness.dark,
     // Primary colors
-    primary: Color(0xFFA7C8FF), // Brighter for dark mode
+    primary: Color.fromARGB(255, 49, 118, 203), // Brighter for dark mode
     primaryContainer: Color(0xFF004A9F), // Darker container
-    onPrimary: Color(0xFF003063),
+    onPrimary: Color.fromARGB(255, 236, 237, 238),
     onPrimaryContainer: Color(0xFFD6E3FF),
 
     // Secondary colors
@@ -91,7 +91,7 @@ class AppTheme {
     onErrorContainer: Color(0xFFFFDAD6),
 
     // Surface/background colors
-    surface: Color(0xFF121416), // True dark surface
+    surface: Color(0xFF090a0b), // True dark surface
     onSurface: Color(0xFFE2E2E6),
     surfaceVariant: Color(0xFF43474E),
     onSurfaceVariant: Color(0xFFC4C6D0),

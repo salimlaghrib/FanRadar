@@ -1,29 +1,28 @@
-// lib/views/screens/login_screen.dart
-import 'package:fanradar/core/theme/app_theme.dart';
 import 'package:fanradar/services/auth_service.dart';
 import 'package:fanradar/views/widgets/login/create_account_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../core/routes/app_routes.dart';
-import '../widgets/login/custom_button_widget.dart';
-import '../widgets/login/custom_text_field_widget.dart';
-import '../widgets/login/forgot_password_widget.dart';
-import '../widgets/login/login_header_widget.dart';
-import '../widgets/login/social_login_widget.dart';
-import '../widgets/login/terms_checkbox_widget.dart';
+import '../../../core/routes/app_routes.dart';
+import '../../widgets/login/custom_button_widget.dart';
+import '../../widgets/login/custom_text_field_widget.dart';
+import '../../widgets/login/forgot_password_widget.dart';
+import '../../widgets/login/login_header_widget.dart';
+import '../../widgets/login/social_login_widget.dart';
+import '../../widgets/login/terms_checkbox_widget.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+class RegisterScreen extends StatefulWidget {
+  const RegisterScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<RegisterScreen> createState() => _LoginScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _LoginScreenState extends State<RegisterScreen> {
   final _formKey = GlobalKey<FormState>();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
+  final _confirmPasswordController = TextEditingController();
   final _authService = AuthService();
 
   bool _isPasswordVisible = false;
@@ -34,16 +33,20 @@ class _LoginScreenState extends State<LoginScreen> {
   void dispose() {
     _emailController.dispose();
     _passwordController.dispose();
+    _confirmPasswordController.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        //use theme colors
-        backgroundColor: Theme.of(context).colorScheme.surface,
-        body: Center(
+    final theme = Theme.of(context);
+    final colorScheme = theme.colorScheme;
+    final textTheme = theme.textTheme;
+
+    return Scaffold(
+      backgroundColor: colorScheme.surface,
+      body: SafeArea(
+        child: Center(
           child: SingleChildScrollView(
             child: Padding(
               padding: const EdgeInsets.all(20.0),
@@ -53,7 +56,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    // Header avec logo
+                    // Header with logo
                     const LoginHeaderWidget(),
                     const SizedBox(height: 32),
 
@@ -80,16 +83,35 @@ class _LoginScreenState extends State<LoginScreen> {
                           _isPasswordVisible
                               ? Icons.visibility_off
                               : Icons.visibility,
+                          color: colorScheme.onSurfaceVariant,
                         ),
                         onPressed: _togglePasswordVisibility,
                       ),
                       validator: _validatePassword,
                     ),
+                    const SizedBox(height: 16),
+
+                    // Confirm Password field
+                    CustomTextFieldWidget(
+                      label: 'Confirm Password',
+                      hintText: 'Confirm your password',
+                      prefixIcon: Icons.lock_outlined,
+                      controller: _confirmPasswordController,
+                      obscureText: !_isPasswordVisible,
+                      validator: (value) {
+                        final passwordError = _validatePassword(value);
+                        if (passwordError != null) return passwordError;
+                        if (value != _passwordController.text) {
+                          return 'Passwords do not match';
+                        }
+                        return null;
+                      },
+                    ),
                     const SizedBox(height: 8),
 
                     // Forgot password
                     ForgotPasswordWidget(onPressed: _handleForgotPassword),
-                    const SizedBox(height: 10),
+                    const SizedBox(height: 16),
 
                     // Terms checkbox
                     TermsCheckboxWidget(
@@ -98,13 +120,13 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     const SizedBox(height: 24),
 
-                    // Sign in button
+                    // Sign Up button
                     CustomButtonWidget(
-                      text: 'Sign In',
+                      text: 'Sign Up',
                       onPressed: _agreeToTerms ? _handleSignIn : null,
                       isLoading: _isLoading,
-                      backgroundColor: Theme.of(context).colorScheme.onPrimary,
-                      textColor: Theme.of(context).colorScheme.primary,
+                      backgroundColor: colorScheme.primary,
+                      textColor: colorScheme.onPrimary,
                     ),
                     const SizedBox(height: 24),
 
@@ -115,11 +137,11 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     const SizedBox(height: 24),
 
-                    // Create account
+                    // Login redirect
                     CreateAccountWidget(
-                      onPressed: _handleCreateAccount,
-                      title: "Don't have an account?",
-                      title2: "Create account",
+                      onPressed: _handleLogin,
+                      title: "Already have an account?",
+                      title2: "Back to Sign in",
                     ),
                   ],
                 ),
@@ -169,8 +191,8 @@ class _LoginScreenState extends State<LoginScreen> {
     Navigator.pushNamed(context, AppRoutes.forgotPassword);
   }
 
-  void _handleCreateAccount() {
-    Get.toNamed(AppRoutes.register);
+  void _handleLogin() {
+    Get.toNamed(AppRoutes.login);
   }
 
   void _handleSignIn() async {

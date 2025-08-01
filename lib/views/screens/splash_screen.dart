@@ -16,7 +16,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
     Future.delayed(const Duration(seconds: 3), () {
       Get.offNamed(
-        AppRoutes.login,
+        AppRoutes.onBoarding,
       ); // Remplace AppRoutes.home par ce que tu veux
     });
   }
@@ -28,7 +28,9 @@ class _SplashScreenState extends State<SplashScreen> {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [Image.asset('assets/images/FanRadar.png', width: 200)],
+          children: [
+            Image.asset('assets/images/logos/FanRadar_logo.png', width: 200),
+          ],
         ),
       ),
     );
