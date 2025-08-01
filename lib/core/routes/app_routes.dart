@@ -1,4 +1,5 @@
-import 'package:fanradar/views/screens/home_screen.dart';
+/* import 'package:fanradar/views/screens/home_screen.dart';
+ */
 import 'package:fanradar/views/screens/main_screen.dart';
 import 'package:fanradar/views/screens/auth/on_boarding.dart';
 import 'package:fanradar/views/screens/auth/register_screen.dart';

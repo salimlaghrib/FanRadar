@@ -15,7 +15,6 @@ class _LoginSignupWidgetState extends State<LoginSignupWidget> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final colorScheme = theme.colorScheme;
-    final textTheme = theme.textTheme;
 
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),

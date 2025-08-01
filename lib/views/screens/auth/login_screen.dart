@@ -1,6 +1,6 @@
 // lib/views/screens/login_screen.dart
-import 'package:fanradar/core/theme/app_theme.dart';
-import 'package:fanradar/services/auth_service.dart';
+/* import 'package:fanradar/services/auth_service.dart';
+ */
 import 'package:fanradar/views/widgets/login/create_account_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -14,7 +14,7 @@ import '../../widgets/login/social_login_widget.dart';
 import '../../widgets/login/terms_checkbox_widget.dart';
 
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+  const LoginScreen({super.key});
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
@@ -24,10 +24,10 @@ class _LoginScreenState extends State<LoginScreen> {
   final _formKey = GlobalKey<FormState>();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
-  final _authService = AuthService();
-
+  /*   final _authService = AuthService();
+ */
   bool _isPasswordVisible = false;
-  bool _isLoading = false;
+  final bool _isLoading = false;
   bool _agreeToTerms = false;
 
   @override

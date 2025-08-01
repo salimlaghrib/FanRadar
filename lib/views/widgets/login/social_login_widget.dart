@@ -1,4 +1,3 @@
-import 'package:fanradar/core/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
 class SocialLoginWidget extends StatelessWidget {
@@ -6,10 +5,10 @@ class SocialLoginWidget extends StatelessWidget {
   final VoidCallback onFacebookPressed;
 
   const SocialLoginWidget({
-    Key? key,
+    super.key,
     required this.onGooglePressed,
     required this.onFacebookPressed,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

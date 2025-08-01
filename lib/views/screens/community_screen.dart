@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
 class CommunityScreen extends StatefulWidget {
+  const CommunityScreen({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _CommunityScreenState createState() => _CommunityScreenState();
 }
 
@@ -69,7 +72,7 @@ class _CommunityScreenState extends State<CommunityScreen> {
   Widget _buildHeader() {
     return Container(
       padding: EdgeInsets.all(16),
-      color: Colors.orange.withOpacity(0.1),
+      color: Colors.orange.withAlpha(50),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -151,7 +154,7 @@ class _CommunityScreenState extends State<CommunityScreen> {
                 child: Container(
                   padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                   decoration: BoxDecoration(
-                    color: Colors.black.withOpacity(0.6),
+                    color: Colors.black.withAlpha(150),
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: Text(
