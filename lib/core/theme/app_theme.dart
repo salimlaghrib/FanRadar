@@ -91,7 +91,7 @@ class AppTheme {
     onErrorContainer: Color(0xFFFFDAD6),
 
     // Surface/background colors
-    surface: Color(0xFF090a0b), // True dark surface
+    surface: Color(0xFF15191e), // True dark surface
     onSurface: Color(0xFFE2E2E6),
     surfaceVariant: Color(0xFF43474E),
     onSurfaceVariant: Color(0xFFC4C6D0),
