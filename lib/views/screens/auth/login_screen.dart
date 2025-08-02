@@ -174,7 +174,7 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   void _handleSignIn() async {
-    Navigator.pushNamed(context, AppRoutes.main);
+    Get.offAllNamed(AppRoutes.main);
     /* if (_formKey.currentState?.validate() ?? false) {
       setState(() {
         _isLoading = true;
